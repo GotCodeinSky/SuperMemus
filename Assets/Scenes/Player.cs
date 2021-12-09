@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     //boolean true false
 
     [Header("Параметры Кирилла")]
-    [SerializeField] protected int PlayerSpeed = 5;
+    [SerializeField] protected int PlayerSpeed = 50;
     [SerializeField] protected float PlayerJump = 2565.5f;
     private float moveX;
 
@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
        {
             Jump();
        } 
+       gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2 (moveX * PlayerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
    } 
 
     void Jump()
