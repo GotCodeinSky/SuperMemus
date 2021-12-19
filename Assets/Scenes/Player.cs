@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,13 +14,13 @@ public class Player : MonoBehaviour
     //int 5
     //float 5.6f
     //string "Privet"
-    //boolean true false
+    //bool true false
 
     [Header("Параметры Кирилла")]
     [SerializeField] protected int PlayerSpeed = 50;
     [SerializeField] protected float PlayerJump = 2565.5f;
     private float moveX;
-
+    [SerializeField] protected bool IsGrounded;
     void Start()
     {
         Debug.Log("Hello world");
@@ -31,10 +32,19 @@ public class Player : MonoBehaviour
        PlayerMove();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            IsGrounded = true;
+        }
+    }
+
+    //My methods
    void PlayerMove()
    {
        moveX = Input.GetAxis("Horizontal");
-       if (Input.GetButtonDown("Jump")) 
+       if (Input.GetButtonDown("Jump") && IsGrounded) 
        {
             Jump();
        } 
@@ -44,6 +54,7 @@ public class Player : MonoBehaviour
     void Jump()
     {
        GetComponent<Rigidbody2D>().AddForce(Vector2.up * PlayerJump);
+       IsGrounded = false;
     }
    
 } 

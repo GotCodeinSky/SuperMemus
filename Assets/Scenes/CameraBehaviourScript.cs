@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraBehaviourScript : MonoBehaviour
 {
     [SerializeField] private int xmin = -5;
-    [SerializeField] private int xmax = 5;
+    [SerializeField] private int xmax = 55;
     [SerializeField] private int ymin = -5;
     [SerializeField] private int ymax = 5;
     [SerializeField] private GameObject player;
