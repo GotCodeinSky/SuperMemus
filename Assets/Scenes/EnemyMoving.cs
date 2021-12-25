@@ -20,6 +20,11 @@ public class EnemyMoving : MonoBehaviour
         if (enemyTouch.distance < 0.8f)
         {
              Flip();
+             if (enemyTouch.collider.CompareTag("Player"))
+             {
+                 Destroy(enemyTouch.collider.gameObject);
+                 PlayerHealth.Die();
+             }
         }
     }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Health : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    void Die()
+    public static void Die()
     {
         SceneManager.LoadScene("Scenes/Level1");
     }

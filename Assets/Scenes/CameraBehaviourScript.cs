@@ -7,7 +7,7 @@ public class CameraBehaviourScript : MonoBehaviour
     [SerializeField] private int xmin = -5;
     [SerializeField] private int xmax = 55;
     [SerializeField] private int ymin = -5;
-    [SerializeField] private int ymax = 5;
+    [SerializeField] private int ymax = 10;
     [SerializeField] private GameObject player;
 
     // Start is called before the first frame update
@@ -19,6 +19,8 @@ public class CameraBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if (player == null) return;
+       
         float x = Mathf.Clamp(player.transform.position.x, xmin, xmax);
         float y = Mathf.Clamp(player.transform.position.y, ymin, ymax);
         gameObject.transform.position = new Vector3 (x, y, gameObject.transform.position.z);
