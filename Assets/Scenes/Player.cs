@@ -38,6 +38,20 @@ public class Player : MonoBehaviour
         {
             IsGrounded = true;
         }
+        else if (collision.gameObject.CompareTag("Zombie"))
+        {
+            Debug.Log("Hi Zombie");
+            var rigidbd2 = collision.gameObject.GetComponent<Rigidbody2D>();
+            var enemyTouch =  Physics2D.Raycast(transform.position, Vector2.down);
+            if (enemyTouch.collider == null) return;
+            rigidbd2.AddForce(Vector2.up * 2000);
+            rigidbd2.AddForce(Vector2.right * 1450);
+            rigidbd2.gravityScale = 20;
+            rigidbd2.freezeRotation = false;
+            collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            collision.gameObject.GetComponent<EnemyMoving>().enabled = false;
+            
+        }
     }
 
     //My methods

@@ -335,8 +335,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84826674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0662, y: -4.19, z: 0}
-  m_LocalScale: {x: 29.499216, y: 5.041783, z: 1}
+  m_LocalPosition: {x: -0.2323, y: -4.19, z: 0}
+  m_LocalScale: {x: 30.0951, y: 5.041783, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -848,7 +848,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.964817
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -872,7 +872,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 2.87, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -910,7 +910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08b8301920fd428a820f45d580f5888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 25
+  enemySpeed: 10
   enemyDirection: 1
 --- !u!61 &554482485
 BoxCollider2D:
@@ -1495,7 +1495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08b8301920fd428a820f45d580f5888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 15
+  enemySpeed: 8
   enemyDirection: 1
 --- !u!1 &913828908
 GameObject:
@@ -2013,7 +2013,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458312038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.76, y: 4.32, z: 0}
+  m_LocalPosition: {x: -4.58, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2561,7 +2561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08b8301920fd428a820f45d580f5888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 25
+  enemySpeed: 10
   enemyDirection: 1
 --- !u!61 &2006749250
 BoxCollider2D:
