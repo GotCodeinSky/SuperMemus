@@ -7,7 +7,7 @@ public class CameraBehaviourScript : MonoBehaviour
     [SerializeField] private int xmin = -5;
     [SerializeField] private int xmax = 55;
     [SerializeField] private int ymin = -5;
-    [SerializeField] private int ymax = 10;
+    [SerializeField] private int ymax = 25;
     [SerializeField] private GameObject player;
 
     // Start is called before the first frame update
