@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
@@ -42,8 +43,8 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Hi Zombie");
             var rigidbd2 = collision.gameObject.GetComponent<Rigidbody2D>();
-            var enemyTouch =  Physics2D.Raycast(transform.position, Vector2.down);
-            if (enemyTouch.collider == null) return;
+            var hitDown =  Physics2D.Raycast(transform.position, Vector2.down);
+            if (hitDown.collider == null) return;
             rigidbd2.AddForce(Vector2.up * 2000);
             rigidbd2.AddForce(Vector2.right * 1450);
             rigidbd2.gravityScale = 20;
@@ -52,6 +53,28 @@ public class Player : MonoBehaviour
             collision.gameObject.GetComponent<EnemyMoving>().enabled = false;
             
         }
+        else if (collision.gameObject.CompareTag("DestroyBlocks"))
+        {
+            Debug.Log("Destroy It");
+            var rigidbd = collision.gameObject.GetComponent<Rigidbody2D>();
+            var direction = Random.value;
+            Debug.Log(direction.ToString());
+            var hitUp =  Physics2D.Raycast(transform.position, Vector2.up);
+            if (hitUp.collider == null) return;
+            rigidbd.AddForce(Vector2.up * 1400);
+            if (direction > 0.5f)
+            {
+                rigidbd.AddForce(Vector2.left * 1450);
+            }
+            else
+            {
+               rigidbd.AddForce(Vector2.right * 1200);
+            }
+            rigidbd.gravityScale = 20;
+            rigidbd.freezeRotation = false;
+            collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            
+        } 
     }
 
     //My methods
