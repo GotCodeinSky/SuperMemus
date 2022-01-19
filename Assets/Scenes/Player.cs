@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
@@ -31,6 +32,14 @@ public class Player : MonoBehaviour
     void Update()
     {    
        PlayerMove();
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("End"))
+        {
+            SceneManager.LoadScene("Scenes/Level2");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
