@@ -8,14 +8,16 @@ using UnityEngine.SceneManagement;
 public class PlayerScore : MonoBehaviour
 {
     private float _timeLeft;
-    private int _score;
+    private float _score;
 
     public TMP_Text timeLeftUI;
+
+    public TMP_Text scoreUI;
     // Start is called before the first frame update
     void Start()
     {
         _timeLeft = 150f;
-        _score = 0;
+        _score = 0f;
     }
 
     // Update is called once per frame
@@ -27,6 +29,15 @@ public class PlayerScore : MonoBehaviour
         if ((int) _timeLeft == 0)
         {
             SceneManager.LoadScene("Scenes/Level1");
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            scoreUI.GetComponent<TextMeshProUGUI>().text = "Score: " + _score;
+            _score = 100;
         }
     }
 }
