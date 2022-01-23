@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
    void PlayerMove()
    {
        moveX = Input.GetAxis("Horizontal");
-       if (Input.GetButtonDown("Jump") && IsGrounded) 
+       if (Input.GetButtonDown("Jump") && IsGrounded)
        {
             Jump();
        } 
