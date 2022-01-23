@@ -40,6 +40,15 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("Scenes/Level2");
         }
+        if (col.gameObject.CompareTag("Coin"))
+        {
+            var rigidbody2d = col.gameObject.GetComponent<Rigidbody2D>();
+            rigidbody2d.AddForce(Vector2.up * 2800);
+            rigidbody2d.AddForce(Vector2.right * 700);
+            rigidbody2d.gravityScale = 2;
+            col.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            PlayerScore.CollectMoney();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

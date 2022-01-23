@@ -8,11 +8,11 @@ using UnityEngine.SceneManagement;
 public class PlayerScore : MonoBehaviour
 {
     private float _timeLeft;
-    private int _score;
+    private static int _score;
 
     public TMP_Text timeLeftUI;
 
-    public TMP_Text scoreUI;
+    [SerializeField] private TMP_Text scoreUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,18 +26,15 @@ public class PlayerScore : MonoBehaviour
         _timeLeft -= Time.deltaTime;
         // _timeLeft = _timeLeft - Time.deltaTime;
         timeLeftUI.gameObject.GetComponent<TextMeshProUGUI>().text = "Time: " + (int)_timeLeft;
+        scoreUI.GetComponent<TextMeshProUGUI>().text = "Score: " + _score;
         if ((int) _timeLeft == 0)
         {
             SceneManager.LoadScene("Scenes/Level1");
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public static void CollectMoney()
     {
-        if (collision.gameObject.CompareTag("Coin"))
-        {
-            scoreUI.GetComponent<TextMeshProUGUI>().text = "Score: " + _score;
-            _score += 100;
-        }
+        _score += 100;
     }
 }
