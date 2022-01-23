@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerScore : MonoBehaviour
 {
     private float _timeLeft;
-    private float _score;
+    private int _score;
 
     public TMP_Text timeLeftUI;
 
@@ -17,7 +17,7 @@ public class PlayerScore : MonoBehaviour
     void Start()
     {
         _timeLeft = 150f;
-        _score = 0f;
+        _score = 0;
     }
 
     // Update is called once per frame
@@ -37,7 +37,7 @@ public class PlayerScore : MonoBehaviour
         if (collision.gameObject.CompareTag("Coin"))
         {
             scoreUI.GetComponent<TextMeshProUGUI>().text = "Score: " + _score;
-            _score = 100;
+            _score += 100;
         }
     }
 }
