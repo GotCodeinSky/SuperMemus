@@ -99,6 +99,14 @@ public class Player : MonoBehaviour
    void PlayerMove()
    {
        moveX = Input.GetAxis("Horizontal");
+       GetComponent<Animator>().SetBool("IsRunning", moveX != 0);
+       if (moveX < 0.0f)
+       {
+           GetComponent<SpriteRenderer>().flipX = true;
+       } else if (moveX > 0.0f)
+       {
+           GetComponent<SpriteRenderer>().flipX = false;
+       }
        if (Input.GetButtonDown("Jump") && IsGrounded)
        {
             Jump();
