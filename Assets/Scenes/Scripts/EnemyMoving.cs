@@ -26,6 +26,13 @@ public class EnemyMoving : MonoBehaviour
                  PlayerHealth.Die();
              }
         }
+        if (enemyDirection < 1)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        } else if (enemyDirection > -1)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
     }
 
     private void Flip()
@@ -40,8 +47,8 @@ public class EnemyMoving : MonoBehaviour
             
     }
     
-    private void Flip2()
-    {
-        enemyDirection = enemyDirection > 0 ? -1 : 1;
-    }
+    // private void Flip2()
+    // {
+    //     enemyDirection = enemyDirection > 0 ? -1 : 1;
+    // }
 }

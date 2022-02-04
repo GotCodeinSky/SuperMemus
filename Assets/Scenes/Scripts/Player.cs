@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             IsGrounded = true;
+            GetComponent<Animator>().SetBool("IsJumping", false);
         }
         else if (collision.gameObject.CompareTag("Zombie"))
         {
@@ -112,12 +113,14 @@ public class Player : MonoBehaviour
             Jump();
        } 
        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2 (moveX * PlayerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+
    } 
 
     void Jump()
-    {
-       GetComponent<Rigidbody2D>().AddForce(Vector2.up * PlayerJump);
-       IsGrounded = false;
+    { 
+        GetComponent<Animator>().SetBool("IsJumping", true); 
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * PlayerJump);
+        IsGrounded = false;
     }
    
 } 

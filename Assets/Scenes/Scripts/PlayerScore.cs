@@ -33,6 +33,13 @@ public class PlayerScore : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Zombie"))
+        {
+            _score += 50;
+        }
+    }
     public static void CollectMoney()
     {
         _score += 100;
