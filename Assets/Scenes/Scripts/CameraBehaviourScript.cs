@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,15 @@ public class CameraBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (gameObject == null)
+        {
+            GameObject.FindGameObjectWithTag("Player");
+        }
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void Update()
+    {
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -20,7 +30,7 @@ public class CameraBehaviourScript : MonoBehaviour
     void LateUpdate()
     {
         if (player == null) return;
-       
+        
         float x = Mathf.Clamp(player.transform.position.x, xmin, xmax);
         float y = Mathf.Clamp(player.transform.position.y, ymin, ymax);
         gameObject.transform.position = new Vector3 (x, y, gameObject.transform.position.z);

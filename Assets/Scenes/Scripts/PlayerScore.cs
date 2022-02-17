@@ -12,12 +12,17 @@ public class PlayerScore : MonoBehaviour
 
     public TMP_Text timeLeftUI;
 
+    [SerializeField] protected TMP_Text[] foundTMPTextArray;
+
     [SerializeField] private TMP_Text scoreUI;
     // Start is called before the first frame update
     void Start()
     {
         _timeLeft = 150f;
         _score = 0;
+        foundTMPTextArray = FindObjectsOfType<TMP_Text>();
+        scoreUI = foundTMPTextArray[1];
+        timeLeftUI = foundTMPTextArray[0];
     }
 
     // Update is called once per frame
